@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wanderlust Travel Agency</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color:black;
+
+        }
+
+        header {
+            background:black;
+            color:cyan;
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-shadow: 0px 0px 10px red,
+            0px 0px 30px red,
+            0px 0px 50px red,
+            0px 0px 70px red,
+            0px 0px 90px red;
+
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: cyan;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+
+        }
+
+        nav ul li a:hover {
+            color:black; /* Change link color on hover */
+        }
+
+        .hero {
+            position: relative;
+            color:black;
+            text-align: center;
+            padding: 100px 20px;
+            overflow: hidden;
+            font-family:'Times New Roman', Times, serif;
+            font-style:normal;
+            text-shadow: 0px 0px 10px red,
+            0px 0px 30px red,
+            0px 0px 50px red,
+            0px 0px 70px red,
+            0px 0px 90px red;
+            
+        }
+
+        .hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .hero h2 {
+            position: relative;
+            z-index: 1;
+            font-size: 2.5em;
+        }
+
+        .hero p {
+            position: relative;
+            z-index: 1;
+            font-size: 1.2em;
+        }
+
+        .cta-button {
+            background:black;
+            color:red;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            transition: background 0.1s, transform 0.3s;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0px 0px 10px red,
+            0px 0px 30px red,
+            0px 0px 50px red,
+            0px 0px 70px red,
+            0px 0px 90px red;
+        }
+
+        .cta-button:hover {
+            background: black;
+            transform: scale(1.05);
+        }
+
+        main {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        h2 {
+            color: black;
+            margin-bottom: 10px;
+            text-align: center;
+            font-size: 2em;
+            
+        }
+
+        .box {
+            background-image:url(https://media.istockphoto.com/id/106529026/photo/threatening-dark-clouds-covering-the-sky.jpg?s=612x612&w=0&k=20&c=XOSnMeZbKOW541FgTISJkDVvFK_bVHyTvusmAk9jjAs=);
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+           
+        }
+
+        .box:hover {
+            transform: translateY(-2px); /* Subtle lift effect on hover */
+        }
+
+        .packages {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .package-item {
+            background: black;
+            border: 3px solid grey;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px;
+            text-align: center;
+            width: 300px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .package-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Increased shadow on hover */
+            text-shadow: 0px 0px 10px red,
+            0px 0px 30px red,
+            0px 0px 50px red,
+            0px 0px 70px red,
+            0px 0px 90px red;
+        }
+
+        footer {
+            text-align: center;
+            background: black;
+            color: blanchedalmond;
+            padding: 20px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            text-shadow: 0px 0px 10px red,
+            0px 0px 30px red,
+            0px 0px 50px red,
+            0px 0px 70px red,
+            0px 0px 90px red;
+        }
+
+        .social-links a {
+            color: red;
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 1.5em;
+            transition: transform 0.3s;
+        }
+
+        .social-links a:hover {
+            transform: scale(1.2); /* Scale effect on hover */
+        }
+
+        /* Scroll to Top Button Styles */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: black;
+            color: red;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            display: none; /* Initially hidden */
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .scroll-to-top:hover {
+            background:black;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 600px) {
+            nav ul li {
+                display: block;
+                margin: 5px 0;
+            }
+
+            .packages {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .package-item {
+                width: 90%;
+            }
+
+            .hero h2 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Wanderlust Travel Agency</h1>
+        <nav>
+            <ul>
+                <li><a href="#Home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#packages">Packages</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <img id="heroImage" src="https://source.unsplash.com/1600x900/?travel,adventure" alt="Travel Adventure">
+        <h2>Your Adventure Awaits!</h2>
+        <p>Explore the world with our exclusive travel packages.</p>
+        <a href="#packages" class="cta-button">Explore Packages</a>
+    </div>
+
+    <main>
+        <div class="box" id="about">
+            <h2>About Us</h2>
+            <p>At Wanderlust Travel Agency, we specialize in creating unforgettable travel experiences. Our team of travel experts is dedicated to helping you discover new destinations and make the most of your adventures.</p>
+        </div>
+
+        <div class="box" id="packages">
+            <h2>Travel Packages</h2>
+            <div class="packages">
+                <div class="package-item">
+                    <h3>Tropical Getaway</h3>
+                    <p>7 Days in the Bahamas</p>
+                    <p><strong>Price: $1,299</strong></p>
+                </div>
+                <div class="package-item">
+                    <h3>European Adventure</h3>
+                    <p>10 Days in Italy and France</p>
+                    <p><strong>Price: $2,499</strong></p>
+                </div>
+                <div class="package-item">
+                    <h3>Safari Experience</h3>
+                    <p>5 Days in South Africa</p>
+                    <p><strong>Price: $1,799</strong></p>
+                </div>
+                <div class="package-item">
+                    <h3>Mountain Retreat</h3>
+                    <p>5 Days in the Swiss Alps</p>
+                    <p><strong>Price: $1,599</strong></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="box" id="contact">
+            <h2>Contact Us</h2>
+            <p>Email: <a href="mailto:info@wanderlusttravel.com">info@wanderlusttravel.com</a></p>
+            <p>Phone: <a href="tel:5551234567">(555) 123-4567</a></p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Wanderlust Travel Agency. All rights reserved.</p>
+        <div class="social-links">
+            <a href="#" aria-label="Facebook">🌐</a>
+            <a href="#" aria-label="Twitter">🐦</a>
+            <a href="#" aria-label="Instagram">📷</a>
+        </div>
+    </footer>
+
+    <button class="scroll-to-top" id="scrollToTopBtn">↑</button>
+
+    <script>
+        // JavaScript for Image Slideshow
+        const images = [
+            
+            'https://herein.marriottresidences.com/wp-content/uploads/2023/03/HEREIN_Iss5_Around-the-Block_Hero-copy-min.jpg',
+            'https://media.discoverafrica.com/wp-content/uploads/2023/10/South-Africa.jpg?strip=all&lossy=1&resize=1920%2C1080&ssl=1',
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Altja_j%C3%B5gi_Lahemaal.jpg/1200px-Altja_j%C3%B5gi_Lahemaal.jpg',
+            'https://files.worldwildlife.org/wwfcmsprod/images/Stormy_sunrise_over_the_Badlands/magazine_hero/9jerns69ib_tevin_trinh_xzPSjPdRcC0_unsplash.jpg',
+            'https://wallpapers.com/images/featured/nature-2ygv7ssy2k0lxlzu.jpg',
+            'https://www.wbcsd.org/wp-content/uploads/2023/10/Accelerating-business-along-the-road-to-a-nature-positive-future_i1140.jpg',
+            'https://img.freepik.com/premium-photo/wide-angle-view-storm-clouds-sky_912356-1723.jpg',
+            'https://media.istockphoto.com/id/106529026/photo/threatening-dark-clouds-covering-the-sky.jpg?s=612x612&w=0&k=20&c=XOSnMeZbKOW541FgTISJkDVvFK_bVHyTvusmAk9jjAs=',
+        ];
+        let currentIndex = 0;
+
+        function changeImage() {
+            const heroImage = document.getElementById('heroImage');
+            currentIndex = (currentIndex + 1) % images.length;
+            heroImage.style.opacity = 0; // Fade out
+            setTimeout(() => {
+                heroImage.src = images[currentIndex];
+                heroImage.style.opacity = 1; // Fade in
+            }, 1000); // Match duration with CSS transition
+        }
+
+        setInterval(changeImage,5000); // Change image every 5 seconds
+
+        // JavaScript for Scroll to Top Button
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+        window.onscroll = function() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                scrollToTopBtn.style.display = 'block';
+            } else {
+                scrollToTopBtn.style.display = 'none';//solvation
+            }
+        };
+
+        scrollToTopBtn.onclick = function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' // Smooth scroll effect
+            });
+        };
+    </script>
+</body>
+</html>
